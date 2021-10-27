@@ -17,27 +17,31 @@ console.log(arrayNumeriCasuali)
 //Faccio un alert con i 5 numeri casuali
 alert(arrayNumeriCasuali)
 
-const arrayNumeriUtenti = [];
-let numeriUtente;
-let myTimer;
-
 //Creo una funzione e un ciclo che si attivi dopo 30 secondi e esca un prompt all'utente
-//for(let i = 0; i < 5; i++){
-myTimer = setTimeout(() => {
+let numeriUtente;
+let myTimer = setTimeout(() => {
+  const arrayNumeriUtenti = [];
+  const arrayNumeriIndovinati = [];
   for(let i = 0; i < 5; i++){
-    numeriUtente = prompt("inserisci i numeri")
+    numeriUtente = parseInt(prompt("inserisci i numeri"))
     arrayNumeriUtenti.push(numeriUtente)
   }
-  if(arrayNumeriCasuali.includes(arrayNumeriUtenti)){
-    alert("Hai vinto")
-  
-  }else{
-    alert("Hai perso")
-    
+//Creo unj ciclo dove vado a inserire in un array vuoto i numeri indovinati.
+  for(let i = 0; i < arrayNumeriUtenti.length; i++){
+    if(arrayNumeriCasuali.includes(arrayNumeriUtenti[i])){
+      arrayNumeriIndovinati.push(arrayNumeriUtenti[i])
+    }
   }
+  console.log(arrayNumeriUtenti)
+  console.log(arrayNumeriIndovinati)
  
-} , 3000);
-console.log(arrayNumeriUtenti)
+  alert(`hai indovinato ${arrayNumeriIndovinati.length} numeri. Il ${arrayNumeriIndovinati}`)
+} ,3000);
+
+
+
+
+
 
 
 
